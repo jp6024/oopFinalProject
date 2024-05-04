@@ -128,9 +128,12 @@ public class AddActivityFrame extends JFrame {
 
         try (FileWriter fw = new FileWriter("activities.csv", true)) {
             fw.write(data);
+         	// close filewriter
+            fw.flush();
+            fw.close();
+            this.dispose(); 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 }
-

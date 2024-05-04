@@ -62,7 +62,8 @@ public class mainFrame extends JFrame {
         JButton btnBrowseActivities = new JButton("Browse Activities");
         btnBrowseActivities.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Implement the functionality for browsing activities here
+            	 BrowseActivityFrame browseActivityFrame = new BrowseActivityFrame();
+                 browseActivityFrame.setVisible(true);
             }
         });
         panel.add(btnBrowseActivities);

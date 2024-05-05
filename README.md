@@ -7,7 +7,7 @@ This project uses Eclipse WindowsBuilder to implement a fitness tracker. Using t
 Please start from the MainFrame and then either add or browse fitness activities from there. 
 
 # Project Specifications
-![projectDiagrams](umlDiagrams.png)
+![projectDiagrams](oopfinal.png)
 
 
 # Contributors

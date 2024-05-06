@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -59,9 +60,21 @@ public class AddActivityFrame extends JFrame {
         JButton btnSubmit = new JButton("Submit");
         btnSubmit.setBounds(182, 280, 244, 23);
         btnSubmit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                saveToCSV();
-            }
+        	public void actionPerformed(ActionEvent e) {
+                String data = String.format("%s,%s,%s,%s,%s",
+                    textField.getText(),
+                    textField_1.getText(),
+                    comboBox.getSelectedItem().toString(),
+                    textField_2.getText(),
+                    textField_3.getText());
+                try {
+                    DBManager.saveActivity(data);
+                    AddActivityFrame.this.dispose();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Failed to save activity.");
+                }
+        	}
         });
         contentPane.add(btnSubmit);
     }
@@ -117,23 +130,5 @@ public class AddActivityFrame extends JFrame {
         comboBox.setBounds(182, 106, 244, 22);
         contentPane.add(comboBox);
     }
-
-    private void saveToCSV() {
-        String data = String.format("%s,%s,%s,%s,%s\n",
-                textField.getText(),
-                textField_1.getText(),
-                comboBox.getSelectedItem().toString(),
-                textField_2.getText(),
-                textField_3.getText());
-
-        try (FileWriter fw = new FileWriter("activities.csv", true)) {
-            fw.write(data);
-         	// close filewriter
-            fw.flush();
-            fw.close();
-            this.dispose(); 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+  
 }

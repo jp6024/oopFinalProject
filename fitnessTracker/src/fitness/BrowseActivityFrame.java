@@ -57,7 +57,7 @@ public class BrowseActivityFrame extends JFrame {
 
         JTextArea textArea = new JTextArea();
         JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.setBounds(10, 11, 350, 300);  // Adjusted width
+        scrollPane.setBounds(10, 11, 350, 300);  
         contentPane.add(scrollPane);
         
         loadActivities(textArea); 
@@ -95,7 +95,7 @@ public class BrowseActivityFrame extends JFrame {
 
     private void addEditDeleteButtons(int lineNumber, String activity, JTextArea textArea) {
         JButton btnEdit = new JButton("Edit");
-        btnEdit.setBounds(370, (lineNumber - 1) * 20, 80, 20);  // Adjusted position and width
+        btnEdit.setBounds(370, (lineNumber - 1) * 20, 80, 20);
         btnEdit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String editedActivity = JOptionPane.showInputDialog("Edit Activity:", activity);

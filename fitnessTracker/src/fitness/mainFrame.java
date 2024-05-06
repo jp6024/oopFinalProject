@@ -16,7 +16,8 @@ import java.awt.event.ActionEvent;
 public class mainFrame extends JFrame {
 
 	private JPanel contentPane;
-
+	
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -45,6 +46,12 @@ public class mainFrame extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+		addActivity(panel);
+
+        browseActivity(panel);
+    }
+	
+	public void addActivity(JPanel panel) {
 		JButton btnAddActivity = new JButton("Add Activity");
         btnAddActivity.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -53,8 +60,10 @@ public class mainFrame extends JFrame {
             }
         });
         panel.add(btnAddActivity);
-
-        JButton btnBrowseActivities = new JButton("Browse Activities");
+	}
+	
+	public void browseActivity(JPanel panel) {
+		JButton btnBrowseActivities = new JButton("Browse Activities");
         btnBrowseActivities.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	 BrowseActivityFrame browseActivityFrame = new BrowseActivityFrame();
@@ -62,5 +71,5 @@ public class mainFrame extends JFrame {
             }
         });
         panel.add(btnBrowseActivities);
-    }
+	}
 }
